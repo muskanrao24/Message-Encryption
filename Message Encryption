@@ -1,0 +1,75 @@
+
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+    char input[] = "Hello World!";
+    int i, asc, x;
+    
+    int key_e, key_d;
+    long unsigned n = sizeof(input);
+    
+    n = n - 1 ;
+    
+    char another;
+    
+    another = 'y';
+    
+    do
+    {
+        printf("Enter 1 to encrypt and 2 to decrypt : ");
+        scanf("%d", &x);
+
+        
+        switch(x)
+        {
+            case 1:
+            {
+                printf("Enter your 8-digit key to encrypt your message : ");
+                scanf("%d", &key_e);
+                
+                printf("\nYour encrypted code : \n\n");
+                
+                for(i = 0; i < n; i++)
+                {
+                    asc = input[i];
+                                        
+                    asc = asc + 10;
+                    
+                    printf("%c", asc);
+                }
+                
+                printf("\n\n");
+                
+                break;
+            }
+                
+            case 2:
+            {
+                printf("Enter your 8-digit key to dencrypt your message : ");
+                scanf("%d", &key_d);
+                
+                if(key_e == key_d)
+                {
+                    printf("Your dencrypted message : \n\n");
+                    printf("%s", input);
+                    
+                    printf("\n\n");
+                }
+                
+                else
+                    printf("Either wrong key or Encrypt first\n");
+                
+                break;
+            }
+                
+            default:
+                printf("Please enter 1 or 2");
+        }
+        
+        printf("Do you want to perform other operation ( y or n ) : ");
+        scanf(" %c", &another);
+        
+    }while(another == 'y');
+}
